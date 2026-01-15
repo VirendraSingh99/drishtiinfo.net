@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaYoutube, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
-import { SiX } from "react-icons/si";
+import { SiXTwitter } from "react-icons/si";
+
 
 export default function Footer() {
   return (
@@ -61,7 +62,7 @@ export default function Footer() {
               target="_blank"
               className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1DA1F2] text-white hover:opacity-80 transition text-sm sm:text-base"
             >
-              <SiX />
+              <SiXTwitter />
             </Link>
           </div>
         </div>
