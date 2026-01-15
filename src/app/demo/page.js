@@ -12,7 +12,7 @@ export default function BookDemoForm() {
     email: "",
     phone: "",
     company: "",
-    date: null,
+    date: null, // ✅ NO AUTO DATE
     software: "",
     message: "",
   });
@@ -44,18 +44,29 @@ export default function BookDemoForm() {
     if (validate()) {
       console.log("Demo Request:", formData);
       alert("Demo request submitted successfully!");
+
+      // ✅ RESET FORM (date also cleared)
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        date: null,
+        software: "",
+        message: "",
+      });
     }
   };
 
   return (
-    <div className="w-screen pt-[90px] bg-white">
+    <div className="w-full bg-white pt-[90px]">
       {/* ================= HERO SECTION ================= */}
-      <div className="bg-red-500 text-white py-18 px-6 ">
-        <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-4">
+      <div className="bg-red-500 text-white py-16 px-4 sm:px-6 lg:px-14 text-center">
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Book Your Free Software Demo
           </h1>
-          <p className="text-white/90 max-w-2xl mx-auto">
+          <p className="text-white/90 max-w-2xl mx-auto text-sm sm:text-base">
             Explore how our powerful software solutions can help your business
             grow faster, smarter and more securely.
           </p>
@@ -63,32 +74,33 @@ export default function BookDemoForm() {
       </div>
 
       {/* ================= MAIN CONTENT ================= */}
-      <div className="min-h-[calc(100vh-90px)] grid md:grid-cols-2">
+      <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-14 gap-6 mt-8">
         {/* 🔴 LEFT INFO */}
-        <div className="bg-white flex items-center">
-          <div className="max-w-md ml-24 py-20">
-            {/* LOGO */}
+        <div className="md:w-1/2 bg-white flex items-center justify-center p-6">
+          <div className="max-w-md text-left">
             <img
               src="./logo1.png"
               alt="Drishti Infotech"
-              className="mb-8 h-18 w-18"
+              className="mb-6 h-18 w-18"
             />
-
             <h2 className="text-3xl font-bold text-red-600 mb-4">
               Why Choose Us?
             </h2>
-
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              We build scalable, secure and business-ready software solutions
-              designed to meet your exact requirements.
+            <p className="text-gray-700 mb-4 leading-relaxed">
+              At Drishti Infotech, we craft scalable and secure software
+              solutions that empower businesses to:
             </p>
-
-            <ul className="space-y-4 text-gray-700">
-              <li> CRM / ERP / MLM Solutions</li>
-              <li> Custom Software Development</li>
-              <li> Cloud-Ready & Secure Systems</li>
-              <li> Long-Term Support & Maintenance</li>
+            <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
+              <li>Streamline operations with CRM, ERP, and MLM software.</li>
+              <li>
+                Get custom-built software tailored to your business needs.
+              </li>
+              <li>Cloud-ready systems ensuring security and reliability.</li>
+              <li>Long-term support & maintenance.</li>
             </ul>
+            <p className="text-gray-700 mt-4 leading-relaxed">
+              Save time, reduce cost and focus on growth.
+            </p>
           </div>
         </div>
 
@@ -96,19 +108,17 @@ export default function BookDemoForm() {
         <Box
           component="form"
           onSubmit={handleSubmit}
-          className="bg-white flex items-center justify-center"
-          sx={{ px: 3 }}
+          className="md:w-1/2 bg-white flex items-center justify-center p-6"
         >
-          <div className="w-full max-w-lg py-14">
-            <h2 className="text-3xl font-bold text-red-600 mb-2">
+          <div className="w-full max-w-lg">
+            <h2 className="text-3xl font-bold text-red-600 mb-2 text-center">
               Book Free Demo
             </h2>
-            <p className="text-gray-600 text-sm mb-10">
+            <p className="text-gray-600 text-sm mb-6 text-center">
               Fill the form and our expert will contact you shortly
             </p>
 
-            {/* INPUTS */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <TextField
                 size="small"
                 label="Full Name"
@@ -116,7 +126,6 @@ export default function BookDemoForm() {
                 value={formData.name}
                 onChange={handleChange}
                 fullWidth
-                required
                 error={Boolean(errors.name)}
                 helperText={errors.name}
               />
@@ -128,7 +137,6 @@ export default function BookDemoForm() {
                 value={formData.email}
                 onChange={handleChange}
                 fullWidth
-                required
                 error={Boolean(errors.email)}
                 helperText={errors.email}
               />
@@ -140,7 +148,6 @@ export default function BookDemoForm() {
                 value={formData.phone}
                 onChange={handleChange}
                 fullWidth
-                required
                 error={Boolean(errors.phone)}
                 helperText={errors.phone}
               />
@@ -155,8 +162,7 @@ export default function BookDemoForm() {
               />
             </div>
 
-            {/* DATE + SOFTWARE */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="Preferred Demo Date"
@@ -165,7 +171,6 @@ export default function BookDemoForm() {
                     setFormData({ ...formData, date: newValue })
                   }
                   disablePast
-                  desktopModeMediaQuery="(min-width: 0px)"
                   slotProps={{
                     textField: {
                       size: "small",
@@ -185,7 +190,6 @@ export default function BookDemoForm() {
                 value={formData.software}
                 onChange={handleChange}
                 fullWidth
-                required
                 error={Boolean(errors.software)}
                 helperText={errors.software}
               >
@@ -208,7 +212,7 @@ export default function BookDemoForm() {
               fullWidth
               multiline
               rows={4}
-              sx={{ mt: 4 }}
+              sx={{ mt: 3 }}
             />
 
             <Button
@@ -217,13 +221,11 @@ export default function BookDemoForm() {
               variant="contained"
               endIcon={<SendIcon />}
               sx={{
-                mt: 6,
-                py: 1.4,
+                mt: 4,
+                py: 1.5,
                 backgroundColor: "#dc2626",
                 fontWeight: "bold",
-                "&:hover": {
-                  backgroundColor: "#b91c1c",
-                },
+                "&:hover": { backgroundColor: "#b91c1c" },
               }}
             >
               Book Demo
@@ -231,36 +233,27 @@ export default function BookDemoForm() {
           </div>
         </Box>
       </div>
-
       {/* ================= RELATED SECTION ================= */}
-      <div className="bg-gray-50 py-16 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-red-600 mb-6">
+      <div className="relative w-full bg-gray-50">
+        {/* ===== Background Image ===== */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?cs=srgb&dl=pexels-olly-927022.jpg&fm=jpg"
+            alt="Trusted Businesses Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* ===== Content ===== */}
+        <div className="relative max-w-4xl mx-auto text-center py-32 px-4 sm:px-6 lg:px-14">
+          <h2 className="text-4xl sm:text-5xl font-bold text-red-500 mb-6 drop-shadow-lg">
             Trusted by Growing Businesses
-          </h3>
-
-          <div className="grid md:grid-cols-3 gap-8 text-gray-700">
-            <div>
-              <h4 className="font-semibold mb-2">🚀 Fast Deployment</h4>
-              <p className="text-sm">
-                Get your software up and running quickly with expert guidance.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-2">🔒 Secure Systems</h4>
-              <p className="text-sm">
-                Enterprise-grade security built into every solution.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-2">💡 Expert Support</h4>
-              <p className="text-sm">
-                Dedicated technical support whenever you need it.
-              </p>
-            </div>
-          </div>
+          </h2>
+          <p className="text-white text-lg sm:text-xl drop-shadow-md">
+            Companies rely on our software solutions to grow smarter, faster,
+            and more securely. Our tools are designed to streamline operations
+            and empower teams to achieve more.
+          </p>
         </div>
       </div>
     </div>

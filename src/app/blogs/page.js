@@ -16,7 +16,7 @@ const blogs = [
     tag: "TASK MANAGEMENT",
     image: "./taskmanagement.jpg",
     title: "Boost Team Productivity with Task Management Software",
-    desc: "Learn how efficient task management software can help your team collaborate better, meet deadlines, and achieve project goals.",
+    desc: "Drishti TMS (DRISHTI Task Management Software) is a simple lead management software that helps businesses manage leads, tasks, projects, and employees efficiently from one centralized platform...",
     color: "from-red-500 to-red-500",
   },
   {
@@ -32,7 +32,7 @@ const blogs = [
     tag: "HRMS",
     image: "./hrms.webp",
     title: "Modern HRMS: Automating Employee Management",
-    desc: "Explore how HRMS management software automates payroll, attendance, leave management, and performance tracking.",
+    desc: "Drishti HRMS is a human resource management software designed to simplify employee management, attendance, payroll, performance tracking, and HR workflows from one platform...",
     color: "from-red-500 to-red-500",
   },
   {
@@ -49,83 +49,174 @@ export default function SoftwareBlog() {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
-    <div className="min-h-screen bg-white mt-24">
-      {/* Hero Section */}
-      <section
-        className="relative py-24 overflow-hidden bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80')",
-        }}
-      >
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-red-500 mb-6">
-            Blogs & Updates
-          </h1>
+    <html lang="en">
+      <head>
+        <title>Blogs | Drishti Infotech HRMS Software & HR Solutions</title>
 
-          <p className="text-xl text-white max-w-3xl mx-auto">
-            Expert articles on Travel CRM, Task Management, MLM, HRMS, and
-            Payment Solutions to grow your business digitally.
-          </p>
-        </div>
-      </section>
+        <link
+          rel="canonical"
+          href="https://hrms.drishtiinfotech.net/about-us"
+        />
 
-      {/* Blog Grid */}
-      <section className="px-6 sm:px-10 lg:px-24 py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
-          {blogs.map((blog, index) => (
-            <article
-              key={blog.id}
-              onMouseEnter={() => setHoveredCard(blog.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-              className="bg-white rounded overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105"
+        <meta
+          name="description"
+          content="Learn about Drishti Infotech, a leading provider of HRMS software and smart HR solutions. Our mission is to automate HR, boost efficiency, and empower businesses."
+        />
+        {/* <meta
+          name="keywords"
+          content="hrms leave management,
+hr software leave management,
+hr leave management system,
+hrms leave management system,
+leave management software,
+employee leave management system,
+employee leave management software,
+software for leave management,
+attendance leave management system"
+        /> */}
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="About Us | Drishti Infotech HRMS Software & HR Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Learn about Drishti Infotech, a leading provider of HRMS software and smart HR solutions. Our mission is to automate HR, boost efficiency, and empower businesses."
+        />
+        <meta
+          property="og:url"
+          content="https://hrms.drishtiinfotech.net/about-us"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Drishti HRMS" />
+        <meta
+          property="og:image"
+          content="https://hrms.drishtiinfotech.net/img/logo.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="About Us | Drishti Infotech HRMS Software & HR Solutions"
+        />
+        <meta
+          name="twitter:description"
+          content="Learn about Drishti Infotech, a leading provider of HRMS software and smart HR solutions. Our mission is to automate HR, boost efficiency, and empower businesses."
+        />
+        <meta
+          name="twitter:image"
+          content="https://hrms.drishtiinfotech.net/img/logo.png"
+        />
+        <meta name="twitter:site" content="@kanakdrishti_" />
+
+        {/* Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              url: "https://hrms.drishtiinfotech.net/about-us",
+              name: "About Us | Drishti Infotech HRMS Software & HR Solutions",
+              description:
+                "Learn about Drishti Infotech, a leading provider of HRMS software and smart HR solutions. Our mission is to automate HR, boost efficiency, and empower businesses.",
+              inLanguage: "en",
+              isPartOf: {
+                "@type": "WebSite",
+                url: "https://hrms.drishtiinfotech.net/",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Drishti Infotech",
+              },
+            }),
+          }}
+        />
+      </head>
+
+      <body>
+        <>
+          <div className="min-h-screen bg-white mt-24">
+            {/* Hero Section */}
+            <section
+              className="relative py-24 overflow-hidden bg-cover bg-center"
               style={{
-                animation: `fadeInUp 0.6s ease-out ${index * 0.15}s both`,
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80')",
               }}
             >
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50 p-4">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className={`w-full h-full object-contain transition-transform duration-700 ${
-                    hoveredCard === blog.id ? "scale-110" : "scale-100"
-                  }`}
-                />
+              <div className="relative max-w-7xl mx-auto px-6 text-center">
+                <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                  Blogs & Updates
+                </h1>
 
-                {/* Tag Badge */}
-                <span
-                  className={`absolute top-6 right-6 bg-gradient-to-r ${blog.color} text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg`}
-                >
-                  {blog.tag}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-red-500 mb-3 leading-tight hover:text-black transition-colors duration-300">
-                  {blog.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-                  {blog.desc}
+                <p className="text-xl text-white max-w-3xl mx-auto">
+                  Expert articles on Travel CRM, Task Management, MLM, HRMS, and
+                  Payment Solutions to grow your business digitally.
                 </p>
-
-                {/* CTA */}
-                <div className="flex items-center justify-end pt-4 border-t border-gray-100">
-                  <button className="flex items-center gap-2 text-red-600 font-semibold text-sm hover:gap-3 transition-all duration-300">
-                    READ MORE
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            </section>
 
-      <style>{`
+            {/* Blog Grid */}
+            <section className="px-6 sm:px-10 lg:px-24 py-20">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+                {blogs.map((blog, index) => (
+                  <article
+                    key={blog.id}
+                    onMouseEnter={() => setHoveredCard(blog.id)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                    className="bg-white rounded overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105"
+                    style={{
+                      animation: `fadeInUp 0.6s ease-out ${index * 0.15}s both`,
+                    }}
+                  >
+                    {/* Image Container */}
+                    <div className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50 p-4">
+                      <img
+                        src={blog.image}
+                        alt={blog.title}
+                        className={`w-full h-full object-contain transition-transform duration-700 ${
+                          hoveredCard === blog.id ? "scale-110" : "scale-100"
+                        }`}
+                      />
+
+                      {/* Tag Badge */}
+                      <span
+                        className={`absolute top-6 right-6 bg-gradient-to-r ${blog.color} text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg`}
+                      >
+                        {blog.tag}
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-red-500 mb-3 leading-tight hover:text-black transition-colors duration-300">
+                        {blog.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                        {blog.desc}
+                      </p>
+
+                      {/* CTA */}
+                      <div className="flex items-center justify-end pt-4 border-t border-gray-100">
+                        <button className="flex items-center gap-2 text-red-600 font-semibold text-sm hover:gap-3 transition-all duration-300">
+                          READ MORE
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <style>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -137,6 +228,9 @@ export default function SoftwareBlog() {
           }
         }
       `}</style>
-    </div>
+          </div>
+        </>
+      </body>
+    </html>
   );
 }

@@ -1,129 +1,112 @@
 "use client";
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
+import Link from "next/link";
 
-const page = () => {
-
-  useEffect(() => {
-    AOS.init({
-      duration: 900,
-      once: true,
-      easing: "ease-out-cubic",
-    });
-  }, []);
-
+const ContactPage = () => {
   return (
-    <section className="mt-28 mb-20">
-      {/* ===== TOP HEADING ===== */}
-      <div
-        data-aos="fade-down"
-        className="max-w-3xl mx-auto text-center mb-12 px-4"
-      >
-        <h2 className="text-3xl sm:text-4xl font-bold text-red-500">
-          Contect Us
-        </h2>
-        <p className="mt-4 text-gray-600 text-sm sm:text-base">
+    <section className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-14 py-36">
+      {/* ===== HERO SECTION ===== */}
+      <div className="max-w-3xl mx-auto text-center mb-16">
+        <h1 className="text-4xl sm:text-5xl font-bold text-red-500">
+          Get in Touch
+        </h1>
+        <p className="mt-4 text-gray-600 text-base sm:text-lg">
           Have a question, project idea, or need support? Fill out the form
           below and our team will get back to you shortly.
         </p>
       </div>
 
-      {/* ===== MAIN CARD ===== */}
-      <div
-        data-aos="fade-up"
-        className="max-w-6xl mx-auto grid lg:grid-cols-5 items-stretch p-2 shadow-[0_2px_10px_-3px_rgba(115,120,131,0.6)] rounded-lg px-4 sm:px-6 lg:px-0"
-      >
-        {/* ===== LEFT INFO PANEL ===== */}
-        <div
-          data-aos="fade-right"
-          className="lg:col-span-2 bg-gradient-to-br from-red-600 via-red-500 to-red-700
-          rounded-lg p-6 sm:p-8 h-full relative overflow-hidden max-lg:order-1 max-lg:mt-8"
-        >
-          <h3 className="text-xl sm:text-2xl text-white font-semibold">
-            Contact Information
-          </h3>
+      {/* ===== CONTACT PARENT CONTAINER ===== */}
+      <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-md overflow-hidden flex flex-col lg:flex-row gap-6">
+        {/* ===== LEFT INFO BOX ===== */}
+        <div className="lg:w-2/5 bg-gradient-to-br from-red-600 via-red-500 to-red-700 p-6 flex flex-col justify-between text-white">
+          <div>
+            <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
+            <p className="text-sm text-red-100 mb-6">
+              Have some big idea or brand to develop and need help?
+            </p>
 
-          <p className="text-sm text-red-100 mt-4 max-w-sm">
-            Have some big idea or brand to develop and need help? Reach out to
-            us anytime.
-          </p>
-
-          <div className="mt-12 relative z-50">
-            <ul className="space-y-6">
-              <li className="text-red-100 hover:text-white text-sm">
-                info@example.com
+            <ul className="space-y-4">
+              <li>
+                <span className="text-sm">
+                  Email:{" "}
+                  <a
+                    href="mailto:sales@kanakdrishtiinfo.com"
+                    className="underline"
+                  >
+                    sales@kanakdrishtiinfo.com
+                  </a>
+                </span>
               </li>
-              <li className="text-red-100 hover:text-white text-sm">
-                +91 99999 88888
+              <li>
+                <span className="text-sm">
+                  <Link href="tel:+919911210174" className="underline">
+                    +91 9911210174
+                  </Link>
+                </span>
               </li>
-              <li className="text-red-100 hover:text-white text-sm">
-                Delhi, India
+              <li>
+                <span className="text-sm">
+                  <Link href="tel:+918744878555" className="underline">
+                    +91 8744878555
+                  </Link>
+                </span>
               </li>
-            </ul>
-
-            <ul className="flex gap-4 mt-10">
-              <li className="bg-white/20 hover:bg-white h-9 w-9 rounded-full"></li>
-              <li className="bg-white/20 hover:bg-white h-9 w-9 rounded-full"></li>
-              <li className="bg-white/20 hover:bg-white h-9 w-9 rounded-full"></li>
+              <li>
+                <span className="text-sm">
+                  Address: Kanak Drishti Infotech Pvt Ltd, A-88, Sector 4 Noida,
+                  Nearest Metro - Sector 16
+                </span>
+              </li>
             </ul>
           </div>
 
-          <div className="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-white/10"></div>
-          <div className="absolute -top-20 -left-20 w-40 h-40 rounded-full bg-white/10"></div>
+          {/* OPTIONAL SOCIAL ICONS */}
+          <div className="flex gap-3 mt-6">
+            <div className="h-8 w-8 bg-white/20 rounded-full flex items-center justify-center"></div>
+            <div className="h-8 w-8 bg-white/20 rounded-full flex items-center justify-center"></div>
+            <div className="h-8 w-8 bg-white/20 rounded-full flex items-center justify-center"></div>
+          </div>
         </div>
 
-        {/* ===== FORM SECTION ===== */}
-        <div
-          data-aos="fade-left"
-          className="px-4 sm:px-8 py-6 lg:col-span-3"
-        >
-          <form className="space-y-2">
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-              <input
-                type="text"
-                placeholder="First Name"
-                required
-                minLength={2}
-                className="border-b border-gray-300 py-3 outline-none focus:border-red-500 text-sm"
-              />
-
-              <input
-                type="text"
-                placeholder="Last Name"
-                required
-                minLength={2}
-                className="border-b border-gray-300 py-3 outline-none focus:border-red-500 text-sm"
-              />
-
-              <input
-                type="tel"
-                placeholder="Phone No."
-                required
-                pattern="[0-9]{10}"
-                title="Enter 10 digit phone number"
-                className="border-b border-gray-300 py-3 outline-none focus:border-red-500 text-sm"
-              />
-
-              <input
-                type="email"
-                placeholder="Email"
-                required
-                className="border-b border-gray-300 py-3 outline-none focus:border-red-500 text-sm"
-              />
-
-              <textarea
-                placeholder="Write Message"
-                required
-                minLength={10}
-                className="md:col-span-2 border-b border-gray-300 py-3 outline-none focus:border-red-500 text-sm resize-none"
-              ></textarea>
-            </div>
+        {/* ===== RIGHT FORM BOX ===== */}
+        <div className="lg:w-3/5 p-6 flex flex-col justify-between">
+          <form className="grid gap-6 md:grid-cols-2">
+            <input
+              type="text"
+              placeholder="First Name"
+              className="border-b border-gray-300 py-3 outline-none focus:border-red-500"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="border-b border-gray-300 py-3 outline-none focus:border-red-500"
+              required
+            />
+            <input
+              type="tel"
+              placeholder="Phone No."
+              pattern="[0-9]{10}"
+              title="Please enter a valid 10-digit phone number"
+              className="border-b border-gray-300 py-3 outline-none focus:border-red-500"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="border-b border-gray-300 py-3 outline-none focus:border-red-500"
+              required
+            />
+            <textarea
+              placeholder="Write Message"
+              className="md:col-span-2 border-b border-gray-300 py-3 outline-none focus:border-red-500"
+              required
+            ></textarea>
 
             <button
               type="submit"
-              data-aos="zoom-in"
-              className="mt-10 bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-lg text-sm font-medium w-full sm:w-auto"
+              className="md:col-span-2 mt-4 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium w-full"
             >
               Send Message
             </button>
@@ -131,11 +114,8 @@ const page = () => {
         </div>
       </div>
 
-      {/* ===== FULL WIDTH MAP ===== */}
-      <div
-        data-aos="fade-up"
-        className="mt-20 w-full px-4 sm:px-8 lg:px-14"
-      >
+      {/* ===== MAP SECTION ===== */}
+      <div className="mt-12 w-full">
         <h3 className="text-center text-xl font-semibold text-slate-900 mb-6">
           Our Location – Kanak Drishti Infotech
         </h3>
@@ -155,4 +135,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ContactPage;
