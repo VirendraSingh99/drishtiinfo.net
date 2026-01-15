@@ -84,7 +84,7 @@ export default function NavbarWithCarousel() {
             About
           </Link>
           <Link
-            href="/products"
+            href="/softwere"
             className="block text-white "
             onClick={() => setIsOpen(false)}
           >
